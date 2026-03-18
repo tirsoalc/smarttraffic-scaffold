@@ -1,0 +1,1 @@
+{"root":["./src/App.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/MetricCard.tsx","./src/components/Panel.tsx","./src/lib/api.ts","./src/types/api.ts"],"errors":true,"version":"5.9.3"}

@@ -1,0 +1,14 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "SmartTrafficFlow DB",
+      "Group": "Servers",
+      "Host": "smarttraffic-db",
+      "Port": 5432,
+      "MaintenanceDB": "smarttrafficflow",
+      "Username": "postgres",
+      "PassFile": "/pgpass",
+      "SSLMode": "prefer"
+    }
+  }
+}

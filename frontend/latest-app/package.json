@@ -1,12 +1,12 @@
 {
-  "name": "smarttrafficflow-frontend",
+  "name": "smarttrafficflow-latest-frontend",
   "private": true,
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 5174",
     "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview --port 4174"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

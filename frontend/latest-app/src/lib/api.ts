@@ -9,7 +9,7 @@ import type {
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:8080/api";
 
-class ApiError extends Error {
+export class ApiError extends Error {
   status: number;
 
   constructor(message: string, status: number) {
@@ -45,37 +45,33 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   return (await response.text()) as T;
 }
 
-export async function getTrafficRecords(): Promise<TrafficRecord[]> {
+export function getTrafficRecords() {
   return request<TrafficRecord[]>("/traffic-records");
 }
 
-export async function createTrafficRecord(
-  payload: CreateTrafficRecordRequest
-): Promise<TrafficRecord> {
+export function createTrafficRecord(payload: CreateTrafficRecordRequest) {
   return request<TrafficRecord>("/traffic-records", {
     method: "POST",
     body: JSON.stringify(payload)
   });
 }
 
-export async function getTrafficStats(groupBy: string): Promise<TrafficStatsResponse> {
+export function getTrafficStats(groupBy: string) {
   return request<TrafficStatsResponse>(`/traffic-stats?groupBy=${encodeURIComponent(groupBy)}`);
 }
 
-export async function getTrafficInsights(): Promise<TrafficInsightResponse> {
+export function getTrafficInsights() {
   return request<TrafficInsightResponse>("/traffic-insights");
 }
 
-export async function generateSimulation(
-  payload: SimulationRequest
-): Promise<TrafficRecord[]> {
+export function generateSimulation(payload: SimulationRequest) {
   return request<TrafficRecord[]>("/simulations/generate", {
     method: "POST",
     body: JSON.stringify(payload)
   });
 }
 
-export async function getTrafficMap(): Promise<MapPoint[]> {
+export function getTrafficMap() {
   return request<MapPoint[]>("/traffic-map");
 }
 
@@ -88,4 +84,4 @@ export async function getExport(format: "csv" | "json"): Promise<Blob> {
   return response.blob();
 }
 
-export { API_BASE_URL, ApiError };
+export { API_BASE_URL };
